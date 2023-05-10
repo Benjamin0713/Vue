@@ -24,7 +24,7 @@ export default {
     },
     height: {
       type: String,
-      default: "820px"
+      default: "100%"
     }
   },
   data() {
@@ -44,19 +44,21 @@ export default {
   components: {},
   mounted() {
     this.$axios.get('http://127.0.0.1:5000/description').then((resp) => {
-      console.log(resp.data.data)
+      // console.log(resp.data.data)
       var datas = resp.data.data
 
       var data = []
       for (var i = 0; i < datas.length; i++) {
-        var d = {name: '', value: 0}
+        var d = {name: '',
+            value: 0
+          }
         d.name = datas[i].name
-        d.value = datas[i].value
+        d.value = datas[i].positive_rate
         data.push(d)
       }
 
       this.datalist = data
-
+      console.log(this.datalist)
       this.initChart()
     }).catch((err) => {
       console.log(err)
@@ -103,7 +105,7 @@ export default {
           formatter: function (data) {
             // console.log(data)
               return (
-                  "country:" + " " + data.name + "</br>" +"value:" + " " + data.value
+                  "country:" + " " + data.name + "</br>" +"positive_rate:" + " " + data.value
               );
           },
           trigger: 'item'
@@ -169,3 +171,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.echarts{
+  width: 100%;
+  height: 100%;
+}
+</style>
