@@ -5,11 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/china",
+    path: "/ChinaChart",
     component: () => import("@/views/ChinaChart.vue")
   },
   {
-    path: "/world",
+    path: "/WorldChart",
     component: () => import("@/views/WorldChart.vue")
   }
 ]
