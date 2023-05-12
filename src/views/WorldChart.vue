@@ -138,6 +138,7 @@ export default {
         visualMap: {
           min: 0,
           max: 30,
+          dimension: 0,
           left: "50px",
           top: 'center',
           text: ["High", "low"], //取值范围的文字
