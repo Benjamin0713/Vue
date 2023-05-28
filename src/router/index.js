@@ -11,6 +11,10 @@ const routes = [
   {
     path: "/WorldChart",
     component: () => import("@/views/WorldChart.vue")
+  },
+  {
+    path: "/Zhuzhuang",
+    component: () => import("@/views/Zhuzhuang.vue")
   }
 ]
 
